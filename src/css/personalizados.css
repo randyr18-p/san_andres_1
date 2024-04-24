@@ -1,0 +1,32 @@
+.bg-naranja {
+    background-color: #febb53;
+}
+.ancho{
+    width: 90%;
+}
+.imagen{
+    width: 100px;
+    height: 150px;
+}
+.logo{
+    width: 35px;
+    height: 35px; 
+}
+
+.imagen-salvador{
+    height: 19.5rem;
+    width: 15rem;
+}
+.prueba{
+    width: 150px;
+    height: 150px;
+}
+.bg-rojo{
+    background-color: #ff0006;
+}
+
+.div-fondo {
+background-position: center; /* Centra la imagen de fondo */
+background-repeat: no-repeat; /* Evita que la imagen se repita */
+background-size: contain; /* Ajusta la imagen para que se vea entera sin recortar */
+}

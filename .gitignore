@@ -1,0 +1,18 @@
+# Directorios de node_modules
+node_modules/
+
+# Archivos de log
+npm-debug.log
+yarn-error.log
+
+# Directorio de build o dist para los archivos compilados
+/build/
+/dist/
+
+# Archivos de entorno que pueden contener información sensible
+.env
+
+# Directorios de cache que no necesitas en el repositorio
+.cache/
+.pnp/
+.pnp.js

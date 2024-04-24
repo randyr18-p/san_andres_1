@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>San andres Grocery Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/personalizados.css">
+</head>
+
+<body class="bg-white">
+    <!-- Header Section -->
+    <header class="bg-blue-300 shadow">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#" class="text-xl font-semibold text-blue-800">San Andres Grocery And Bakery </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <span class="text-white font-medium">Oferta especial 25%  de descuento</span>
+                <a href="#" class="text-white hover:underline">Seguimiento del pedido</a>
+                <a href="#" class="text-white hover:underline">Noticias</a>
+                <a href="#" class="text-white hover:underline">Contactanos</a>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- Main Navigation -->
+     <nav class="sticky  top-0 z-50 bg-blue-600 shadow rounded-t-xl ">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex space-x-4">
+                <!-- Menú Hamburguesa -->
+                <button id="menuButton" class="text-white focus:outline-none block  lg:hidden ">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+                <!-- logo san andres -->
+                <div class="flex items-center ">
+                    <a href="#" class="text-xl font-semibold text-white"><img  class="logo h-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg" src="/imagenes/logo_san_andres.png" alt=""></a>
+                </div>  
+            </div>
+            
+            <!-- Barra de búsqueda expandiéndose al centro -->
+            <div class="flex-grow relative mx-auto mr-10 ml-10 w-full sm:w-auto">
+                <label for="Search" class="sr-only">Search</label>
+                <input type="text" id="Search"
+                    placeholder="Buscar producto" 
+                    class="w-full rounded-md border-gray-200 py-2.5 pl-2 pr-10 hidden md:block lg:block shadow-sm text-sm focus:ring-green-500 focus:border-green-500 md:placeholder:¿que producto estas buscando?"
+                />
+                <span class="absolute inset-y-0 right-0 flex items-center pr-2">
+                    <button type="button" class="text-gray-600 hover:text-gray-700">
+                        <span class="sr-only">Search</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="h-4 w-4 hidden md:block lg:block">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                    </button>
+                </span>
+            </div>
+            
+            <div class="flex space-x-4 items-center">
+                <!-- Elementos de Navegación -->
+                <a href="#" class="text-white hidden lg:block hover:text-green-200">Categorias</a>
+                <a href="#" class="text-white hidden lg:block hover:text-green-200">Tienda</a>
+                <a href="#" class="text-white hidden lg:block hover:text-green-200">Restaurante</a>
+                
+                <!-- Iconos SVG -->
+                <button class="btn btn-ghost btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white block md:hidden lg:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                </button>
+                
+                <!-- Icono de Carrito de Compras -->
+                <a href="#" class="text-white hover:text-green-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        class="feather feather-shopping-cart" viewBox="0 0 24 24">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"> </path>
+                    </svg>
+                </a>
+                <!-- Icono de Perfil -->
+                <a href="#" class="text-white hover:text-green-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-user" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <!-- Menú Desplegable -->
+        <div id="menu" class="absolute top-10 left-0 w-full h-screen bg-black bg-opacity-50 hidden m z-50">
+            <div class="bg-white w-80 h-full shadow relative ">
+                <!-- Botón de Cierre -->
+                <button id="closeButton" class="absolute top-0 right-0 p-4">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <!-- Elementos del Menú -->
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Inicio</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tienda</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Acerca de</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Image Carousel -->
+    <main class="container mx-auto px-10 py-4 ">
+    <div class="container mx-auto px-10 mt-10">
+        <div class="grid grid-cols-12 gap-4">
+            <!-- Swiper Carousel ocupando 8 columnas -->
+            <div class="col-span-12 lg:col-span-8">
+                <!-- Inicialización del carrusel de Swiper -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slides del carrusel -->
+                        <div class="swiper-slide"><img src="/imagenes/baner-grande.png" alt="Imagen 1"
+                                class="object-cover w-full" /></div>
+                        <div class="swiper-slide"><img src="/imagenes/baner-grande2.png" alt="Imagen 2"
+                                class="object-cover w-full" /></div>
+                        <div class="swiper-slide"><img src="/imagenes/banner-grande3.png" alt="Imagen 3"
+                                class="object-cover w-full" /></div>
+                        <!-- Añade más slides según sea necesario -->
+                    </div>
+                    <!-- Si necesitas paginación -->
+                    <div class="swiper-pagination"></div>
+                    <!-- Si necesitas navegación -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+            <!-- Imagen estática ocupando 4 columnas -->
+            <div class="hidden lg:block lg:col-span-4">
+                <img src="/imagenes/baner-pequeño1 (1).png" alt="Imagen Estática"
+                    class="object-cover w-full rounded-lg shadow-lg" />
+            </div>
+
+        </div>
+    </div>
+
+    <!-- targetas de productos  -->
+    <div class="bg-white mt-10 mr-2 container px-8 md:px-12 lg:px-12 mx-auto">
+        <div class="flex space-x-6 overflow-x-auto md:justify-center md:items-center">
+            <!-- Tarjeta de Categoría: Comida Preparada -->
+            <div class="min-w-max flex-none  bg-blue-600 text-white p-4 rounded-lg">
+                <img src="/imagenes/alimentos2.png" alt="Comida Preparada" class="mb-4 imagen">
+                <h3 class="font-bold">Comidas y lacteos</h3>
+            </div>
+
+            <!-- Tarjeta de Categoría: Productos de Club -->
+            <div class="min-w-max flex-none  bg-blue-600 text-white p-4 rounded-lg">
+                <img src="/imagenes/alimentos3.png" alt="Productos de Club" class="mb-4  imagen">
+                <h3 class="font-bold">Productos</h3>
+            </div>
+
+              <!-- Tarjeta de Categoría: Productos de Club -->
+              <div class="min-w-max flex-none bg-blue-600 text-white p-4 rounded-lg">
+                <img src="/imagenes/alimentos3.png" alt="Productos de Club" class="mb-4  imagen">
+                <h3 class="font-bold">Ofertas</h3>
+            </div>
+
+            <!-- Tarjeta de Categoría: Productos Nuevos -->
+            <div class="min-w-max flex-none  bg-blue-600 text-white p-4 rounded-lg  hidden lg:block ">
+                <img src="/imagenes/alimentos.png" alt="Productos Nuevos" class="mb-4  imagen">
+                <h3 class="font-bold">Productos nuevos</h3>
+            </div>
+
+            <!-- Tarjeta de Categoría: KiPacks del Ahorro -->
+            <div class="min-w-max flex-none  bg-blue-600 text-white p-4 rounded-lg hidden  lg:block">
+                <img src="/imagenes/alimentos2.png" alt="KiPacks del Ahorro" class="mb-4 imagen">
+                <h3 class="font-bold">aseo y hogar</h3>
+            </div>
+            <div class="min-w-max flex-none  bg-blue-600 text-white p-4 rounded-lg hidden  xl:block">
+                <img src="/imagenes/alimentos2.png" alt="KiPacks del Ahorro" class="mb-4 imagen">
+                <h3 class="font-bold"> especiales</h3>
+            </div>
+
+            <!-- Tarjeta de Categoría: Frutas y Verduras Cortadas -->
+            <div class="min-w-max flex-none  bg-blue-600 text-white p-4 rounded-lg hidden  xl:block">
+                <img src="/imagenes/alimentos3.png" alt="Frutas y Verduras Cortadas" class="mb-4 imagen">
+                <h3 class="font-bold">Frutas y verduras</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- bannner de productos -->
+
+    <div class=" max-auto px-10 ml-0 sm:ml-2 md:ml-0 lg:ml-0 mt-10">
+        <div class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-2 w-full">
+            <div class="h-64 rounded-lg bg-indigo-400 lg:col-span-2 div-fondo" style="background-image: url(/imagenes/baner-grande.png)";>
+            </div>
+            <div class="h-55 rounded-lg bg-indigo-400 div-fondo" style="background-image: url(/imagenes/baner-pequeño1\ \(5\).png)";>
+            </div>
+            <div class="h-55 rounded-lg bg-indigo-400 div-fondo" style="background-image: url(/imagenes/baner-pequeño1\ \(2\).png);">
+            </div>
+            <div class="h-55 rounded-lg bg-indigo-400 div-fondo" style="background-image: url(/imagenes/baner-pequeño1\ \(6\).png);">
+            </div>
+            <div class="h-55 rounded-lg bg-indigo-400 div-fondo" style="background-image: url(/imagenes/baner-pequeño1\ \(4\).png);">
+            </div>
+            <div class="h-64 rounded-lg  bg-indigo-400 lg:col-span-2 div-fondo" style="background-image: url(/imagenes/baner-grande2.png)";>
+            </div>
+        </div>
+    </div>
+
+       <div class="container  p-10 mt-10 ">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-white">
+            <!-- Single card -->
+            <div class="bg-blue-300 p-6 rounded-lg shadow-md">
+                <img src="product1.jpg" alt="Product 1" class="rounded-t-lg w-full mb-4" />
+                <h2 class="text-lg font-bold text-gray-800 mb-3">Product Title</h2>
+                <p class="text-gray-600 mb-3">
+                    Product description goes here. It's a brief detail about the
+                    product.
+                </p>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-800 font-bold">$99.99</span>
+                    <button class="bg-rojo text-white font-bold py-2 px-4 rounded">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <div class="bg-blue-300 p-6 rounded-lg shadow-md">
+                <img src="product1.jpg" alt="Product 1" class="rounded-t-lg w-full mb-4" />
+                <h2 class="text-lg font-bold text-gray-800 mb-3">Product Title</h2>
+                <p class="text-gray-600 mb-3">
+                    Product description goes here. It's a brief detail about the
+                    product.
+                </p>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-800 font-bold">$99.99</span>
+                    <button class="bg-rojo text-white font-bold py-2 px-4 rounded">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <div class="bg-blue-300 p-6 rounded-lg shadow-md">
+                <img src="product1.jpg" alt="Product 1" class="rounded-t-lg w-full mb-4" />
+                <h2 class="text-lg font-bold text-gray-800 mb-3">Product Title</h2>
+                <p class="text-gray-600 mb-3">
+                    Product description goes here. It's a brief detail about the
+                    product.
+                </p>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-800 font-bold">$99.99</span>
+                    <button class="bg-rojo text-white font-bold py-2 px-4 rounded">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <div class="bg-blue-300 p-6 rounded-lg shadow-md">
+                <img src="product1.jpg" alt="Product 1" class="rounded-t-lg w-full mb-4" />
+                <h2 class="text-lg font-bold text-gray-800 mb-3">Product Title</h2>
+                <p class="text-gray-600 mb-3">
+                    Product description goes here. It's a brief detail about the
+                    product.
+                </p>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-800 font-bold">$99.99</span>
+                    <button class="bg-rojo text-white font-bold py-2 px-4 rounded">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <div class="bg-blue-300 p-6 rounded-lg shadow-md">
+                <img src="product1.jpg" alt="Product 1" class="rounded-t-lg w-full mb-4" />
+                <h2 class="text-lg font-bold text-gray-800 mb-3">Product Title</h2>
+                <p class="text-gray-600 mb-3">
+                    Product description goes here. It's a brief detail about the
+                    product.
+                </p>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-800 font-bold">$99.99</span>
+                    <button class="bg-rojo text-white font-bold py-2 px-4 rounded">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <div class="bg-blue-300 p-6 rounded-lg shadow-md">
+                <img src="product1.jpg" alt="Product 1" class="rounded-t-lg w-full mb-4" />
+                <h2 class="text-lg font-bold text-gray-800 mb-3">Product Title</h2>
+                <p class="text-gray-600 mb-3">
+                    Product description goes here. It's a brief detail about the
+                    product.
+                </p>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-800 font-bold">$99.99</span>
+                    <button class="bg-rojo text-white font-bold py-2 px-4 rounded">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <!-- Repeat for more cards -->
+        </div>
+
+       </div>
+        <!-- E-commerce cards go here -->
+        
+        <div class=" flex flex-col container mx-auto px-10 py-4 ">
+            <!-- Título y línea horizontal -->
+            <div class="mb-4">
+                <h2 class="text-2xl font-bold">Antojitos Salvadoreños</h2>
+                <hr class="mt-2 border-gray-300">
+            </div>
+            <div class="flex gap-4">
+                <div class="flex-1">
+                    <img src="/imagenes/baner-pequeño1 (1).png" alt="Descripción de la imagen" class="w-full imagen-salvador object-cover">
+                </div>
+                <div class=" flex-1 hidden md:block swiper swiper-contenido">
+                    <!-- Wrapper for slides -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <!-- Tarjeta de Producto -->
+                            <div class="overflow-hidden shadow-lg bg-white">
+                                <img src="/imagenes/alimentos3.png" alt="Empanadas de Pollo" class="w-full h-32 object-cover">
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg">$8.99</h3>
+                                    <p class="text-gray-700">Empanadas de pollo congeladas</p>
+                                    <p class="text-sm text-gray-500">1 paq / 6 u</p>
+                                    <button class="mt-2 bg-rojo text-white text-sm px-4 py-2 rounded-full">Agregar al carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <!-- Tarjeta de Producto -->
+                            <div class="overflow-hidden shadow-lg bg-white">
+                                <img src="/imagenes/alimentos.png" alt="Empanadas de Pollo" class="w-full h-32 object-cover">
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg">$8.99</h3>
+                                    <p class="text-gray-700">Empanadas de pollo congeladas</p>
+                                    <p class="text-sm text-gray-500">1 paq / 6 u</p>
+                                    <button class="mt-2 bg-rojo text-white text-sm px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 sm:rounded-sm md:rounded-lg lg:rounded-xl">Agregar al carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <!-- Tarjeta de Producto -->
+                            <div class="rounded-lg overflow-hidden shadow-lg bg-white">
+                                <img src="/imagenes/alimentos.png" alt="Empanadas de Pollo" class="w-full h-32 object-cover">
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg">$8.99</h3>
+                                    <p class="text-gray-700">Empanadas de pollo congeladas</p>
+                                    <p class="text-sm text-gray-500">1 paq / 6 u</p>
+                                    <button class="mt-2 bg-rojo text-white text-sm px-4 py-2 rounded-full">Agregar al carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <!-- Tarjeta de Producto -->
+                            <div class="rounded-lg overflow-hidden shadow-lg bg-white">
+                                <img src="/imagenes/alimentos.png" alt="Empanadas de Pollo" class="w-full h-32 object-cover">
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg">$8.99</h3>
+                                    <p class="text-gray-700">Empanadas de pollo congeladas</p>
+                                    <p class="text-sm text-gray-500">1 paq / 6 u</p>
+                                    <button class="mt-2 bg-rojo text-white text-sm px-4 py-2 rounded-full">Agregar al carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <!-- Tarjeta de Producto -->
+                            <div class="rounded-lg overflow-hidden shadow-lg bg-white">
+                                <img src="/imagenes/alimentos.png" alt="Empanadas de Pollo" class="w-full h-32 object-cover">
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg">$8.99</h3>
+                                    <p class="text-gray-700">Empanadas de pollo congeladas</p>
+                                    <p class="text-sm text-gray-500">1 paq / 6 u</p>
+                                    <button class="mt-2 bg-rojo text-white text-sm px-4 py-2 rounded-full">Agregar al carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <!-- Tarjeta de Producto -->
+                            <div class="rounded-lg overflow-hidden shadow-lg bg-white">
+                                <img src="/imagenes/alimentos.png" alt="Empanadas de Pollo" class="w-full h-32 object-cover">
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg">$8.99</h3>
+                                    <p class="text-gray-700">Empanadas de pollo congeladas</p>
+                                    <p class="text-sm text-gray-500">1 paq / 6 u</p>
+                                    <button class="mt-2 bg-rojo text-white text-sm px-4 py-2 rounded-full">Agregar al carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <!-- Tarjeta de Producto -->
+                            <div class="rounded-lg overflow-hidden shadow-lg bg-white">
+                                <img src="/imagenes/alimentos.png" alt="Empanadas de Pollo" class="w-full h-32 object-cover">
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg">$8.99</h3>
+                                    <p class="text-gray-700">Empanadas de pollo congeladas</p>
+                                    <p class="text-sm text-gray-500">1 paq / 6 u</p>
+                                    <button class="mt-2 bg-rojo text-white text-sm px-4 py-2 rounded-full">Agregar al carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Repite el swiper-slide para cada tarjeta -->
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                    <!-- Add Navigation -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+
+   <!-- footer -->
+  <footer class="px-4 divide-y bg-blue-700 dark:bg-gray-100 dark:text-gray-800">
+	<div class="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
+		<div class="lg:w-1/3">
+			<a rel="noopener noreferrer" href="#" class="flex justify-center space-x-3 lg:justify-start">
+				<div class="flex items-center justify-center w-12 h-12 rounded-full dark:bg-violet-600">
+					<img  class="logo h-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg" src="/imagenes/logo_san_andres.png" alt="">
+				</div>
+				<span class="self-center text-white text-2xl font-semibold">San Andres Grocery</span>
+			</a>
+		</div>
+		<div class="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
+			<div class="space-y-3">
+				<h3 class="tracking-wide uppercase text-white dark:text-gray-900">Informacion</h3>
+				<ul class="space-y-1 text-white">
+					<li>
+						<a rel="noopener noreferrer" href="#">Features</a>
+					</li>
+					<li>
+						<a rel="noopener noreferrer" href="#">Integraciones</a>
+					</li>
+					<li>
+						<a rel="noopener noreferrer" href="#">Pricios</a>
+					</li>
+					
+				</ul>
+			</div>
+			<div class="space-y-3 text-white">
+				<h3 class="tracking-wide uppercase dark:text-gray-900">Contacto y FAQ</h3>
+				<ul class="space-y-1">
+					<li>
+						<a rel="noopener noreferrer" href="#">Preguntas frecuentes</a>
+					</li>
+					<li>
+						<a rel="noopener noreferrer" href="#">Terminos y condiciones</a>
+					</li>
+				</ul>
+			</div>
+			<div class="space-y-3 text-white">
+				<h3 class="uppercase dark:text-gray-900">Terminos y politicas</h3>
+				<ul class="space-y-1">
+					<li>
+						<a rel="noopener noreferrer" href="#">Condiciones de promociones</a>
+					</li>
+					<li>
+						<a rel="noopener noreferrer" href="#">Politicas de Privacidad</a>
+					</li>
+					<li>
+						<a rel="noopener noreferrer" href="#">Uso de cookies</a>
+					</li>
+				</ul>
+			</div>
+			<div class="space-y-3 text-white">
+				<div class="uppercase ">Social media</div>
+				<div class="flex justify-start space-x-3">
+					<a rel="noopener noreferrer" href="#" title="Facebook" class="flex items-center p-1">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-5 h-5 fill-current">
+							<path d="M32 16c0-8.839-7.167-16-16-16-8.839 0-16 7.161-16 16 0 7.984 5.849 14.604 13.5 15.803v-11.177h-4.063v-4.625h4.063v-3.527c0-4.009 2.385-6.223 6.041-6.223 1.751 0 3.584 0.312 3.584 0.312v3.937h-2.021c-1.984 0-2.604 1.235-2.604 2.5v3h4.437l-0.713 4.625h-3.724v11.177c7.645-1.199 13.5-7.819 13.5-15.803z"></path>
+						</svg>
+					</a>
+					<a rel="noopener noreferrer" href="#" title="Twitter" class="flex items-center p-1">
+						<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current">
+							<path d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z"></path>
+						</svg>
+					</a>
+					<a rel="noopener noreferrer" href="#" title="Instagram" class="flex items-center p-1">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="w-5 h-5 fill-current">
+							<path d="M16 0c-4.349 0-4.891 0.021-6.593 0.093-1.709 0.084-2.865 0.349-3.885 0.745-1.052 0.412-1.948 0.959-2.833 1.849-0.891 0.885-1.443 1.781-1.849 2.833-0.396 1.020-0.661 2.176-0.745 3.885-0.077 1.703-0.093 2.244-0.093 6.593s0.021 4.891 0.093 6.593c0.084 1.704 0.349 2.865 0.745 3.885 0.412 1.052 0.959 1.948 1.849 2.833 0.885 0.891 1.781 1.443 2.833 1.849 1.020 0.391 2.181 0.661 3.885 0.745 1.703 0.077 2.244 0.093 6.593 0.093s4.891-0.021 6.593-0.093c1.704-0.084 2.865-0.355 3.885-0.745 1.052-0.412 1.948-0.959 2.833-1.849 0.891-0.885 1.443-1.776 1.849-2.833 0.391-1.020 0.661-2.181 0.745-3.885 0.077-1.703 0.093-2.244 0.093-6.593s-0.021-4.891-0.093-6.593c-0.084-1.704-0.355-2.871-0.745-3.885-0.412-1.052-0.959-1.948-1.849-2.833-0.885-0.891-1.776-1.443-2.833-1.849-1.020-0.396-2.181-0.661-3.885-0.745-1.703-0.077-2.244-0.093-6.593-0.093zM16 2.88c4.271 0 4.781 0.021 6.469 0.093 1.557 0.073 2.405 0.333 2.968 0.553 0.751 0.291 1.276 0.635 1.844 1.197 0.557 0.557 0.901 1.088 1.192 1.839 0.22 0.563 0.48 1.411 0.553 2.968 0.072 1.688 0.093 2.199 0.093 6.469s-0.021 4.781-0.099 6.469c-0.084 1.557-0.344 2.405-0.563 2.968-0.303 0.751-0.641 1.276-1.199 1.844-0.563 0.557-1.099 0.901-1.844 1.192-0.556 0.22-1.416 0.48-2.979 0.553-1.697 0.072-2.197 0.093-6.479 0.093s-4.781-0.021-6.48-0.099c-1.557-0.084-2.416-0.344-2.979-0.563-0.76-0.303-1.281-0.641-1.839-1.199-0.563-0.563-0.921-1.099-1.197-1.844-0.224-0.556-0.48-1.416-0.563-2.979-0.057-1.677-0.084-2.197-0.084-6.459 0-4.26 0.027-4.781 0.084-6.479 0.083-1.563 0.339-2.421 0.563-2.979 0.276-0.761 0.635-1.281 1.197-1.844 0.557-0.557 1.079-0.917 1.839-1.199 0.563-0.219 1.401-0.479 2.964-0.557 1.697-0.061 2.197-0.083 6.473-0.083zM16 7.787c-4.541 0-8.213 3.677-8.213 8.213 0 4.541 3.677 8.213 8.213 8.213 4.541 0 8.213-3.677 8.213-8.213 0-4.541-3.677-8.213-8.213-8.213zM16 21.333c-2.948 0-5.333-2.385-5.333-5.333s2.385-5.333 5.333-5.333c2.948 0 5.333 2.385 5.333 5.333s-2.385 5.333-5.333 5.333zM26.464 7.459c0 1.063-0.865 1.921-1.923 1.921-1.063 0-1.921-0.859-1.921-1.921 0-1.057 0.864-1.917 1.921-1.917s1.923 0.86 1.923 1.917z"></path>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="py-6 text-sm text-white text-center dark:text-gray-600">© 1968 Company Co. All rights reserved.</div>
+</footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <!-- Inicializar Swiper -->
+    <script>
+        // JavaScript for Hamburger Menu Toggle
+        // JavaScript para el Toggle del Menú Hamburguesa y Cierre
+        const menuButton = document.getElementById('menuButton');
+        const closeButton = document.getElementById('closeButton');
+        const menuOverlay = document.getElementById('menu'); // El fondo opaco del menú
+
+        menuButton.addEventListener('click', () => {
+            menuOverlay.classList.toggle('hidden');
+        });
+
+        closeButton.addEventListener('click', () => {
+            menuOverlay.classList.add('hidden');
+        });
+
+        // Cerrar el menú al hacer clic en el fondo opaco
+        menuOverlay.addEventListener('click', (e) => {
+            // Asegúrate de que el clic no sea en los elementos del menú
+            if (e.target === menuOverlay) {
+                menuOverlay.classList.add('hidden');
+            }
+        });
+
+        // Prevenir el cierre cuando se hace clic en el div que contiene los elementos del menú
+        document.querySelector("#menu > div").addEventListener('click', (e) => {
+            e.stopPropagation(); // Esto detiene la propagación para evitar que se dispare el evento del overlay
+        });
+
+
+        var swiper = new Swiper('.mySwiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+
+      var swiper = new Swiper('.swiper-contenido', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        // Responsive breakpoints
+        breakpoints: {
+          // when window width is >= 640px
+          400: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          // when window width is >= 768px
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 30,
+          },
+          850: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          900: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1100: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        },
+      });
+    </script>
+</body>
+
+</html>
