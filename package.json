@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "scanTailwind": "npx tailwindcss -i ./src/css/config.css -o ./src/css/estilos.css --watch",
     "build:css": "postcss src/css/config.css -o dist/css/style.css",
-    "build:html": "cp src\\index.html dist\\index.html",
+    "build:html": "cp src//index.html dist/index.html",
     "build": "npm run build:css && npm run build:html"
   },
   "keywords": [],
