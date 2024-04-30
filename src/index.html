@@ -124,8 +124,8 @@
         </div>
     </nav>
 
-    <!-- Image Carousel -->
-    <main class="container mx-auto px-10 py-4 ">
+   
+<main class="container mx-auto px-10 py-4 ">
     <div class="container mx-auto px-10 mt-10">
         <div class="grid grid-cols-12 gap-4">
             <!-- Swiper Carousel ocupando 8 columnas -->
@@ -508,87 +508,7 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <!-- Inicializar Swiper -->
-    <script>
-        // JavaScript for Hamburger Menu Toggle
-        // JavaScript para el Toggle del Menú Hamburguesa y Cierre
-        const menuButton = document.getElementById('menuButton');
-        const closeButton = document.getElementById('closeButton');
-        const menuOverlay = document.getElementById('menu'); // El fondo opaco del menú
-
-        menuButton.addEventListener('click', () => {
-            menuOverlay.classList.toggle('hidden');
-        });
-
-        closeButton.addEventListener('click', () => {
-            menuOverlay.classList.add('hidden');
-        });
-
-        // Cerrar el menú al hacer clic en el fondo opaco
-        menuOverlay.addEventListener('click', (e) => {
-            // Asegúrate de que el clic no sea en los elementos del menú
-            if (e.target === menuOverlay) {
-                menuOverlay.classList.add('hidden');
-            }
-        });
-
-        // Prevenir el cierre cuando se hace clic en el div que contiene los elementos del menú
-        document.querySelector("#menu > div").addEventListener('click', (e) => {
-            e.stopPropagation(); // Esto detiene la propagación para evitar que se dispare el evento del overlay
-        });
-
-
-        var swiper = new Swiper('.mySwiper', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      });
-
-      var swiper = new Swiper('.swiper-contenido', {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        // Responsive breakpoints
-        breakpoints: {
-          // when window width is >= 640px
-          400: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          640: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          // when window width is >= 768px
-          768: {
-            slidesPerView: 1,
-            spaceBetween: 30,
-          },
-          850: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          900: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          1100: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-        },
-      });
-    </script>
+   <script src="./js/index.js"></script>
 </body>
 
 </html>

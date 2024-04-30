@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+<link rel="stylesheet" href="./css/personalizados.css">
+
+</head>
+<body class="font-principal">
+    <h1 class="bg-principal">Hola mundo</h1>
+    <!-- Navegación -->
+    <nav class="sticky  top-0 z-50 bg-green-500 shadow rounded-t-xl ">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex space-x-4">
+                <!-- Menú Hamburguesa -->
+                <button id="menuButton" class="text-white focus:outline-none block  lg:hidden ">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+                <!-- logo san andres -->
+                <div class="flex items-center ">
+                    <a href="#" class="text-xl font-semibold text-white"><img  class="logo h-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg" src="/imagenes/logo_san_andres.png" alt=""></a>
+                </div>  
+            </div>
+            
+            <!-- Barra de búsqueda expandiéndose al centro -->
+            <div class="flex-grow relative mx-auto mr-10 ml-10 w-full sm:w-auto">
+                <label for="Search" class="sr-only">Search</label>
+                <input type="text" id="Search"
+                    placeholder="Buscar producto" 
+                    class="w-full rounded-md border-gray-200 py-2.5 pl-2 pr-10 hidden md:block lg:block shadow-sm text-sm focus:ring-green-500 focus:border-green-500 md:placeholder:¿que producto estas buscando?"
+                />
+                <span class="absolute inset-y-0 right-0 flex items-center pr-2">
+                    <button type="button" class="text-gray-600 hover:text-gray-700">
+                        <span class="sr-only">Search</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="h-4 w-4 hidden md:block lg:block">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                    </button>
+                </span>
+            </div>
+            
+            <div class="flex space-x-4 items-center">
+                <!-- Elementos de Navegación -->
+                <a href="#" class="text-white hidden lg:block hover:text-green-200">Categorias</a>
+                <a href="#" class="text-white hidden lg:block hover:text-green-200">Tienda</a>
+                <a href="#" class="text-white hidden lg:block hover:text-green-200">Restaurante</a>
+                
+                <!-- Iconos SVG -->
+                <button class="btn btn-ghost btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white block md:hidden lg:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                </button>
+                
+                <!-- Icono de Carrito de Compras -->
+                <a href="#" class="text-white hover:text-green-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        class="feather feather-shopping-cart" viewBox="0 0 24 24">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"> </path>
+                    </svg>
+                </a>
+                <!-- Icono de Perfil -->
+                <a href="#" class="text-white hover:text-green-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-user" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <!-- Menú Desplegable -->
+        <div id="menu" class="absolute top-10 left-0 w-full h-screen bg-black bg-opacity-50 hidden m z-50">
+            <div class="bg-white w-80 h-full shadow relative ">
+                <!-- Botón de Cierre -->
+                <button id="closeButton" class="absolute top-0 right-0 p-4">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <!-- Elementos del Menú -->
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Inicio</a>
+                <a href="./menu.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tienda</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Acerca de</a>
+            </div>
+        </div>
+    </nav>
+
+     <!-- Contenedor Principal -->
+     <main class="container mx-auto px-4 sm:px-6 lg:px-8 my-10 bg-violet-400">
+        <div class="bg-white shadow overflow-hidden sm:rounded-lg p-6">
+            <!-- Contenido principal aquí -->
+            <h1 class="text-xl font-semibold">Bienvenidos a Nuestra Tienda</h1>
+            <p>Descubre nuestros productos y ofertas especiales.</p>
+        </div>
+        <div class="container mx-auto">
+            <div class="grid grid-cols-12 gap-4">
+                <!-- Swiper Carousel ocupando 8 columnas -->
+                <div class="col-span-12 lg:col-span-8">
+                    <!-- Inicialización del carrusel de Swiper -->
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <!-- Slides del carrusel -->
+                            <div class="swiper-slide"><img src="../imagenes/baner-grande.png" alt="Imagen 1"
+                                    class="object-cover w-full" /></div>
+                            <div class="swiper-slide"><img src="../imagenes/baner-grande2.png" alt="Imagen 2"
+                                    class="object-cover w-full" /></div>
+                            <div class="swiper-slide"><img src="../imagenes/banner-grande3.png" alt="Imagen 3"
+                                    class="object-cover w-full" /></div>
+                            <!-- Añade más slides según sea necesario -->
+                        </div>
+                        <!-- Si necesitas paginación -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Si necesitas navegación -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+                <!-- Imagen estática ocupando 4 columnas -->
+                <div class="hidden lg:block lg:col-span-4">
+                    <img src="/imagenes/baner-pequeño1 (1).png" alt="Imagen Estática"
+                        class="object-cover w-full rounded-lg shadow-lg" />
+                </div>
+    
+            </div>
+        </div>
+    </main>
+
+    <!-- Main content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 my-10">
+        <div class="bg-white shadow overflow-hidden sm:rounded-lg p-6">
+            <!-- El contenido principal de tu página va aquí -->
+            <h1 class="text-xl font-semibold">Bienvenidos a Nuestro Supermercado Online</h1>
+            <p>Explora nuestra amplia variedad de productos y ofertas exclusivas.</p>
+        </div>
+    </main>
+    
+    <nav class="bg-white shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex px-2 lg:px-0">
+                    <div class="flex space-x-8">
+                        <!-- Links for navigation -->
+                        <a href="#" class="text-gray-900 text-sm font-medium rounded-md bg-gray-50 hover:bg-gray-100 px-3 py-2">Inicio</a>
+                        <a href="#" class="text-gray-900 text-sm font-medium rounded-md hover:bg-gray-100 px-3 py-2">Productos</a>
+                        <a href="#" class="text-gray-900 text-sm font-medium rounded-md hover:bg-gray-100 px-3 py-2">Ofertas</a>
+                        <a href="#" class="text-gray-900 text-sm font-medium rounded-md hover:bg-gray-100 px-3 py-2">Sobre Nosotros</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner de Promociones Destacadas -->
+    <div class="relative bg-cover bg-center h-64 text-white py-24 px-5 object-fill" style="background-image: url('/imagenes/baner-grande2.png');">
+        <div class="max-w-7xl mx-auto">
+            <div class="md:w-1/2 text-black">
+                <h2 class="text-3xl text-black font-bold">Ofertas Especiales Disponibles!</h2>
+                <p>Aprovecha descuentos exclusivos en productos y comidas típicas de El Salvador y Guatemala.</p>
+                <a href="#" class="mt-4 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Explorar Ofertas
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+ 
+
+// Initialize Swiper sliders
+function initSwipers() {
+    const swiperMain = new Swiper('.mySwiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    const swiperContent = new Swiper('.swiper-contenido', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            400: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 1,
+                spaceBetween: 30,
+            },
+            850: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            900: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            1100: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+        },
+    });
+}
+
+// Document ready function to initialize everything
+document.addEventListener('DOMContentLoaded', () => {
+    initSwipers();
+});
+
+    </script>
+</body>
+</html>
+
+
